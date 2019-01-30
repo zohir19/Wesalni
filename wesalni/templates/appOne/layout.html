@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>
+        </title>
+        
+    </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/lay_style.css' %}"/>
+    <body>
+     <div class='mynav'>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light ">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'home' %}">wesalni</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">find a ride</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">offer a ride</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="#">login</a>
+    </li>
+    
+    </li>
+      </ul>
+</nav>
+</div>
+
+    </body>
+</html>
