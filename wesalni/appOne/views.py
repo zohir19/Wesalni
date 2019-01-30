@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
-from appOne.forms import ContactForm
+from appOne.forms import ContactForm,LoginForm,RegisterForm
+from django.contrib.auth import authenticate,login,get_user_model
 # Create your views here.
 def home_page(request):
     contexte={
@@ -27,6 +28,40 @@ def contact_page(request):
         print(contact_form.cleaned_data)
     
     return render(request,'appOne/contact.html',contexte)
+def login_page(request):
+    form= LoginForm(request.POST or None)
+    contexte={
+        "form":form
+    }
+    print("User logged in")
+    if form.is_valid():
+        print(form.cleaned_data)
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(request,username=username,password=password)
+        print(user)
+        if user is not None:
+            login(request,user)
+            return redirect('/')
+        else:
+            print("ERROR")
+    return render(request,"appOne/login.html",contexte)
+User= get_user_model()      
+def register_page(request):
+    form= RegisterForm(request.POST or None)
+    contexte={
+        "form":form
+    }
+    if form.is_valid():
+        print(form.cleaned_data)
+        username = form.cleaned_data.get("username")
+        email=form.cleaned_data.get("email")
+        password = form.cleaned_data.get("password")
+        new_user=User.objects.create_user(username,email,password)
+        print(new_user)
+    return render(request,"appOne/register.html",contexte)
+    
+
    
 
     
