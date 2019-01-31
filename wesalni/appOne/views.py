@@ -61,7 +61,12 @@ def register_page(request):
         print(new_user)
     return render(request,"appOne/register.html",contexte)
     
-
+def terms_page(request):
+    contexte={
+        'title':'Terms & conditions page',
+        'content':'Welcome to the Terms & conditions page',   
+    }
+    return render(request,'appOne/terms.html',contexte)
    
 
     
