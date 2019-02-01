@@ -11,8 +11,8 @@ A good Udemy tutorial.<br>Some good companions and a lot of coffe.
 <br><br>
 **How to use it :**<br><br>
 run the below code in the `Weselni\weselni`
- folder<br>
- <code lang='python'>python3 manage.py runserver 127.0.0.1:8080</code><br>
+ folder<br><br>
+ <code lang='python'>python3 manage.py runserver 127.0.0.1:8080</code><br><br>
  and then access this site http://127.0.0.1:8080 once the server has started.<br>
  **Don't forget to give us a STAR**
  
