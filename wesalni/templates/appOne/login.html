@@ -1,29 +1,47 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Mini Project L3</title>
-	<link rel="stylesheet" href="Wesalni/wesalni/static/css/style.css">
+	<title>Login</title>
 </head>
 <body>
-	<header>
-		<div class="wrapper">
-			<div class="logo">
-				<img src="/home/akram/Desktop/" alt="">
-			</div>
-			<ul class="nav-area">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Register</a></li>
-				<li><a href="Wesalni/wesalni/templates/appOne/login.html">Login</a></li>
-			</ul>
-		</div>
+	<center>
+		<h3>Welcome</h3>
 
-		<div class="welcome-text">
-			<h1>Welcome</h1>
-			<a href="#"> wach la famille </a>
-		</div>
-	</header>
+		<form action="login.php" method="post">
+			<table>
+				<tr>
+					<td>
+						Username:
+					</td>
+					<td>
+						<input type="text" name="uname">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Password:
+					</td>
+					<td>
+						<input type="Password" name="pword">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="submit" name="submit" value="Login">
+					</td>
+					<td>
+						You do not have an account?<a href="#">Register</a>
+					</td>
+				</tr>
+
+				<tr>
+					<td><input type="submit" name="submit" value="Facebook"></td>
+					<td><input type="submit" name="submit" value="Google"></td>
+				</tr>
+			</table>
+		</form>
+	</center>
 </body>
 </html>
