@@ -67,6 +67,10 @@ def terms_page(request):
         'content':'Welcome to the Terms & conditions page',   
     }
     return render(request,'appOne/terms.html',contexte)
-   
-
     
+def account_page(request):
+    contexte={
+        'title':'My Account page',
+        'content':'Welcome to your Account page',   
+    }
+    return render(request,'appOne/account.html',contexte)

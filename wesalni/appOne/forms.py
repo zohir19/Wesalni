@@ -1,7 +1,8 @@
 from django import forms
-from appOne.models import Client
+from appOne.models import User
 from django.contrib.auth import get_user_model
-Client= get_user_model()
+from phonenumber_field.formfields import PhoneNumberField
+User= get_user_model()
 class ContactForm(forms.Form):
     fullname= forms.CharField(widget=forms.TextInput(
         attrs={"class":"form-control","placeholder":"your full name"}))
@@ -19,19 +20,20 @@ class RegisterForm(forms.Form):
         attrs={"class":"form-control","placeholder":"your username"}))
     email=forms.EmailField(widget=forms.EmailInput(
         attrs={"class":"form-control","placeholder":"your email"}) )
+    phone=PhoneNumberField()
     password= forms.CharField(widget=forms.PasswordInput(
         attrs={"class":"form-control","placeholder":"your password"}))
     password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
         attrs={"class":"form-control","placeholder":"confirm your password"}))
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        qs = Client.objects.filter(username=username)
+        qs =User.objects.filter(username=username)
         if qs.exists():
             raise forms.ValidationError("username is taken")
         return username
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        qs = Client.objects.filter(email=email)
+        qs = User.objects.filter(email=email)
         if qs.exists():
             raise forms.ValidationError("email is taken")
         return email
