@@ -1,7 +1,7 @@
 from django import forms
 from appOne.models import User
 from django.contrib.auth import get_user_model
-from phonenumber_field.formfields import PhoneNumberField
+#from phonenumber_field.formfields import PhoneNumberField
 User= get_user_model()
 class ContactForm(forms.Form):
     fullname= forms.CharField(widget=forms.TextInput(
@@ -20,7 +20,7 @@ class RegisterForm(forms.Form):
         attrs={"class":"form-control","placeholder":"your username"}))
     email=forms.EmailField(widget=forms.EmailInput(
         attrs={"class":"form-control","placeholder":"your email"}) )
-    phone=PhoneNumberField()
+    #phone=PhoneNumberField()
     password= forms.CharField(widget=forms.PasswordInput(
         attrs={"class":"form-control","placeholder":"your password"}))
     password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
