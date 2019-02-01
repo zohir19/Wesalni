@@ -1,9 +1,10 @@
 <!doctype html>
+{% load staticfiles %}
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<title>Mini Project L3</title>
-	<link rel="stylesheet" href="Wesalni/wesalni/static/css/style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 	<header>
@@ -12,11 +13,11 @@
 				<img src="" alt="">
 			</div>
 			<ul class="nav-area">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Register</a></li>
-				<li><a href="Wesalni/wesalni/templates/appOne/login.html">Login</a></li>
+				<li><a href="{% url 'home' %}">Home</a></li>
+				<li><a href="{% url 'about' %}">About</a></li>
+				<li><a href="{% url 'contact' %}">Contact</a></li>
+				<li><a href="{% url 'register' %}">Register</a></li>
+				<li><a href="{% url 'login' %}">Login</a></li>
 			</ul>
 		</div>
 
