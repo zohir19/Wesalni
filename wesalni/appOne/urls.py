@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path,include
 from appOne import views
+
 
 urlpatterns = [
     path('',views.home_page,name='home'),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('register/',views.register_page,name='register'),
     path('terms/',views.terms_page,name='terms'),
     path('account/',views.account_page,name='account'),
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]

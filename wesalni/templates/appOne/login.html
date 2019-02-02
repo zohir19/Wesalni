@@ -2,7 +2,8 @@
 <html>
 <head><title>login</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="col-sm-6 col-12">
@@ -12,6 +13,15 @@
 {{ form }}
 
 <input class="btn btn-primary", value="sign-in" type="submit">
+<p> --- OR ---</p>
+
+<a class="fab fa-github btn btn-dark btn-lg" href="{% url 'social:begin' 'github' %}" role="button"> Github</a>
+<a class="fab fa-google btn btn-danger btn-lg" href="{% url 'social:begin' 'google-oauth2' %}" role="button"> Google</a>
+<a class="fab fa-facebook btn btn-primary btn-lg" href="{% url 'social:begin' 'facebook' %}" role="button"> Facebook</a>
+
+
+
 </form>
+
 </div>
 </body>

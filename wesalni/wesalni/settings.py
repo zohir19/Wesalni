@@ -38,8 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appOne',
+    'social_django',
     #'phonenumber_field',
 ]
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'wesalni.urls'
@@ -64,6 +74,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -123,3 +135,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     STATIC_DIR,
 ]
+
+
+LOGIN_REDIRECT_URL = 'post_list'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='718871831217-8f686tqqjcdclihj8h353mde07fniuge.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='9jcbcNIhig7ITWEgEnT1R_xV'
+SOCIAL_AUTH_GITHUB_KEY='ef3d042bc9a8ba8abfad'
+SOCIAL_AUTH_GITHUB_SECRET='3ae3235cbb5631719d6ae55912d8b9c57a708412'
+SOCIAL_AUTH_FACEBOOk_KEY=''
+SOCIAL_AUTH_FACEBOOK_SECRET=''

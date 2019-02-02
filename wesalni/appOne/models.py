@@ -7,4 +7,4 @@ class User(models.Model):
     #phone_number = PhoneNumberField()
     def __str__(self):
         return self.username
-    
+        
