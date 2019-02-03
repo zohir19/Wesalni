@@ -25,6 +25,7 @@ class RegisterForm(forms.Form):
         attrs={"class":"form-control","placeholder":"your password"}))
     password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
         attrs={"class":"form-control","placeholder":"confirm your password"}))
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'form-control'}))
     def clean_username(self):
         username = self.cleaned_data.get('username')
         qs =User.objects.filter(username=username)
