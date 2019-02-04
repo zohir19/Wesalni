@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Mini Project L3</title>
-    <link rel="icon" href="{% static 'favicon.ico' %}">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-	<header>
-		<div class="wrapper">
-			<div class="logo">
-				<img src="" alt="">
-			</div>
-			<ul class="nav-area">
-				<li><a href="{% url 'home' %}">Home</a></li>
-				<li><a href="{% url 'about' %}">About</a></li>
-				<li><a href="{% url 'contact' %}">Contact</a></li>
-				<li><a href="{% url 'register' %}">Register</a></li>
-				<li><a href="{% url 'login' %}">Login</a></li>
-			</ul>
-		</div>
+<html>
 
-		<div class="welcome-text">
-			<h1>Welcome</h1>
-			<a href="#"> wach la famille </a>
-		</div>
-	</header>
+<head>
+    <title>
+        {{ title }}
+    </title>
+    {% include 'appOne/header.html' %}
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+
+        </header>
+    </div>
+
+{% include 'appOne/footer.html' %}
 </body>
+
 </html>
