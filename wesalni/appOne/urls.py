@@ -1,5 +1,5 @@
 from django.urls import path,include
-from appOne import views
+from wesalni.appOne import views
 
 
 urlpatterns = [

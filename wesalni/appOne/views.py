@@ -28,9 +28,11 @@ def contact_page(request):
         print(contact_form.cleaned_data)
     
     return render(request,'appOne/contact.html',contexte)
+
 def login_page(request):
     form= LoginForm(request.POST or None)
     contexte={
+        "title": "Login or Register",
         "form":form
     }
     print("User logged in")
@@ -50,6 +52,7 @@ User= get_user_model()
 def register_page(request):
     form= RegisterForm(request.POST or None)
     contexte={
+        "title": "Register",
         "form":form
     }
     if form.is_valid():

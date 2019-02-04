@@ -1,4 +1,3 @@
 pip
-django
+Django
 social-auth-app-django
-setuptools
