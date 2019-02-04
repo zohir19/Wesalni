@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% include 'appOne/header.html' %}
 {% load staticfiles %}
 
 <html>
@@ -7,6 +6,7 @@
         <title>
             {{ title }}
         </title>
+        {% include 'appOne/header.html' %}
     </head>
     <body>
     <div class="col-sm-6 col-12">
@@ -14,7 +14,7 @@
             {% csrf_token %}
             {{ form }}
 
-            <input class="btn btn-primary", value="send" type="submit">
+            <input class="btn btn-primary" value="send" type="submit">
         </form>
     </div>
     </body>

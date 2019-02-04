@@ -42,6 +42,22 @@
 						Log in
 					</span>
 
+                    <div class="wrap-input100">
+                    <a class="btn btn-block btn-social btn-dark" style="color: white" href="{% url 'social:begin' 'github' %}">
+                        <span class="fa fa-github fa-2x"></span> Sign in with Github
+                    </a>
+
+                    <a class="btn btn-block btn-social btn-danger" style="color: white" href="{% url 'social:begin' 'google' %}">
+                        <span class="fa fa-google fa-2x"></span> Sign in with Google
+                    </a>
+                        <a class="btn btn-block btn-social btn-primary" style="color: white" href="{% url 'social:begin' 'facebook' %}">
+                        <span class="fa fa-facebook fa-2x"></span> Sign in with Facebook
+                    </a>
+                    </div>
+                    <div class="wrap-input100">
+                        OR
+                    </div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="username" placeholder="Username" autofocus>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>

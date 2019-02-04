@@ -1,4 +1,22 @@
-{% include 'appOne/header.html' %}
+<!DOCTYPE html>
+{% load staticfiles %}
 
-{% block body_block %}
-{% endblock body_block %}
+<html>
+    <head>
+        <title>
+            {{ title }}
+        </title>
+        {% include 'appOne/header.html' %}
+    </head>
+    <body>
+    <div class="col-sm-6 col-12">
+        <form method='POST'>
+            {% csrf_token %}
+            {{ form }}
+
+            <input class="btn btn-primary" value="send" type="submit">
+        </form>
+    </div>
+    </body>
+</html>
+
