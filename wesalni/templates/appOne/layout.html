@@ -5,7 +5,7 @@
 <title>{{title}}</title>
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<script>window.jQuery || document.write('<script src="/js/jquery-1.12.4.min.js">\x3C/script>')</script>
+<script>window.jQuery || document.write('<script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}">\x3C/script>')</script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/footer.css' %}">
@@ -27,7 +27,8 @@
         <li class=""> <a href="#" class="about" >Find a ride</a></li>
         <li class=""><a href="#" class="contact" >Offer a ride</a></li>
         {% if user.is_authenticated %}
-            <li class="dropdown"> <a href="javascript:void(0)" class="services dropdown-toggle"  data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}}<span class="caret"></span></a>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="services dropdown-toggle"  data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}}<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
             <li class=""> <a href="{% url 'account' %}" >My Account</a></li>
             <li class=""><a href="#" >LOG OUT</a></li>
@@ -87,7 +88,7 @@
 
 				<div>
 					
-					<a href="mailto:support@wesalni.com"class="fa fa-envelope">support@wesalni.com</a>
+					<a href="mailto:support@wesalni.com" class="fa fa-envelope">support@wesalni.com</a>
 				</div>
   </div>
 

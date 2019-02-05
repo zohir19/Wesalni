@@ -91,10 +91,17 @@
                     </span>
                         </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="btn btn-dark btn-lg" formaction="{% url 'register' %}">
-                            Register
+
+                    {% csrf_token %}
+				</form>
+                <div class="container-login100-form-btn">
+                    <a href="{% url 'register' %}">
+                        <button class="btn btn-dark btn-lg">
+
+                                Register
+
                         </button>
+                    </a>
                     </div>
 
 					<div class="text-center p-t-80">
@@ -102,8 +109,6 @@
 							Forgot Password?
 						</a>
 					</div>
-                    {% csrf_token %}
-				</form>
 
 			</div>
 		</div>
