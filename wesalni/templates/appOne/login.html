@@ -3,11 +3,13 @@
 {% load crispy_forms_tags %}
 <html lang="en">
 <head>
-	<title>Login V3</title>
+	<title>
+        {{ title }}
+    </title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
@@ -27,6 +29,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login-util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login-main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -36,7 +39,7 @@
             <div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<i class="zmdi zmdi-account"></i>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -44,7 +47,7 @@
 					</span>
 
                     <div class="wrap-input100">
-                    <a class="btn btn-block btn-social btn-dark" style="color: white" href="{% url 'social:begin' 'github' %}">
+                    <a class="btn btn-block btn-social-icon btn-dark" style="color: white" href="{% url 'social:begin' 'github' %}">
                         <span class="fa fa-github fa-2x"></span> Sign in with Github
                     </a>
 
@@ -94,7 +97,7 @@
                         </button>
                     </div>
 
-					<div class="text-center p-t-90">
+					<div class="text-center p-t-80">
 						<a class="txt1" href="#">
 							Forgot Password?
 						</a>
@@ -104,10 +107,14 @@
 
 			</div>
 		</div>
+
 	</div>
 
 
-	<div id="dropDownSelect1"></div>
+
+	<div id="dropDownSelect1">
+
+    </div>
 
 <!--===============================================================================================-->
 	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
@@ -125,6 +132,7 @@
 	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'js/login-main.js' %}"></script>
+
 
 </body>
 </html>

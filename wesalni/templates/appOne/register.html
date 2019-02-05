@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	{% include 'appOne/header.html' %}
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
@@ -32,12 +32,14 @@
 </head>
 <body>
 
+    {% include 'appOne/header.html' %}
+
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{% static "img/bg-01.jpg" %}');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-redo"></i>
+						<i class="zmdi zmdi-account-add"></i>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">

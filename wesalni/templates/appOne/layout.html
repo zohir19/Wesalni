@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <title>{{title}}</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 <script>window.jQuery || document.write('<script src="/js/jquery-1.12.4.min.js">\x3C/script>')</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
@@ -29,7 +29,7 @@
         {% if user.is_authenticated %}
             <li class="dropdown"> <a href="javascript:void(0)" class="services dropdown-toggle"  data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}}<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            <li class=""> <a href="#" >My Account</a></li>
+            <li class=""> <a href="{% url 'account' %}" >My Account</a></li>
             <li class=""><a href="#" >LOG OUT</a></li>
             </ul>
             </li>
@@ -73,7 +73,7 @@
 					
 				</p>
 
-				<p class="footer-company-name">Company Name &copy; 2019</p>
+				<p class="footer-company-name">Wesalni &copy; 2019</p>
   </div>
 
   <div class="col-sm-4">
@@ -93,7 +93,7 @@
 
   <div class="col-sm-4">
   
-         <input type="text" class="form-control" id="usr"placeholder="Subscribe to our newsletter"><button class="btn btn-primary">subscribe</button>
+         <input type="text" class="form-control" id="usr" ="Subscribe to our newsletter"><button class="btn btn-primary">subscribe</button>
         
         
 				<div class="footer-icons">
