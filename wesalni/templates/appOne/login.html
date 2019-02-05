@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	{% include 'appOne/header.html' %}
+	
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
@@ -30,7 +30,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
+{% include 'appOne/header.html' %}
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{% static "img/bg-01.jpg" %}');">
             <div class="wrap-login100">

@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-{% load staticfiles %}
+{% extends 'appOne/layout.html' %}
+{% block body_block %}
 
-<html>
-    <head>
-        <title>
-            {{ title }}
-        </title>
-        {% include 'appOne/header.html' %}
-    </head>
-    <body>
-    <div class="col-sm-6 col-12">
-        <form method='POST'>
-            {% csrf_token %}
-            {{ form }}
+<div class="col-sm-6 col-12">
+<form method='POST'>
+{% csrf_token %}
+{{ form }}
 
-            <input class="btn btn-primary" value="send" type="submit">
-        </form>
-    </div>
-    </body>
-</html>
-    
+
+<input class="btn btn-primary", value="send" type="submit">
+</form>
+</div>
+{% endblock body_block %}
