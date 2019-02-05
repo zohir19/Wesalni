@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appOne',
     'social_django',
-    #'phonenumber_field',
+    'crispy_forms',
+    #'phone_field',
 ]
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
