@@ -21,24 +21,16 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
     username= forms.CharField(widget=forms.TextInput(
-        attrs={"class":"input100","placeholder":"Username","autofocus":"True", "Required":"True"}))
+        attrs={"class":"form-control","placeholder":"your username"}))
     email=forms.EmailField(widget=forms.EmailInput(
-        attrs={"class":"input100","placeholder":"E-mail", "Required":"True"}) )
-    email_con = forms.EmailField(
-        widget=forms.EmailInput(
-            attrs={"class":"input100", "placeholder":"Re-enter your E-mail", "Required":"True"}
-        )
-    )
-    phone = PhoneFormField(widget=forms.TextInput(
-        attrs={'class': 'input100', 'placeholder':'Phone number', 'required':'true', "maxlenght":10}
-    ), max_length=10)
+        attrs={"class":"form-control","placeholder":"your email"}) )
     password= forms.CharField(widget=forms.PasswordInput(
-        attrs={"class":"input100","placeholder":"Password","required":"true"}
-    ))
-    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'input100', "required":"true"}))
+        attrs={"class":"form-control","placeholder":"your password"}))
+    password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
+        attrs={"class":"form-control","placeholder":"confirm your password"}))
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        qs =User.objects.filter(username=username)
+        qs = User.objects.filter(username=username)
         if qs.exists():
             raise forms.ValidationError("username is taken")
         return username
@@ -52,6 +44,6 @@ class RegisterForm(forms.Form):
         data=self.cleaned_data
         password=self.cleaned_data.get("password")
         password2=self.cleaned_data.get("password2")
-        if password != password2:
+        if password!= password2:
             raise forms.ValidationError("Passwords must match.")
         return data

@@ -9,9 +9,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-
-
-
+<!---->
 <style></style>
 </head>
 <body>
@@ -29,8 +27,8 @@
         {% if user.is_authenticated %}
             <li class="dropdown"> <a href="javascript:void(0)" class="services dropdown-toggle"  data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}} <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li class=""> <a href="#" >My Account</a></li>
-            <li class=""><a href="#" >LOG OUT</a></li>
+            <li class=""> <a href="{% url 'account' %}" >My Account</a></li>
+            <li class=""><a href="{% url 'logout' %}" >LOG OUT</a></li>
           </ul>
         </li>
 
