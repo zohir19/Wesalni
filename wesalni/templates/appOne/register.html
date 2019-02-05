@@ -2,7 +2,9 @@
 {% load staticfiles %}
 <html lang="en">
 <head>
-	<title>Login V3</title>
+	<title>
+        {{ title }}
+    </title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -35,7 +37,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<i class="zmdi zmdi-redo"></i>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -56,31 +58,37 @@
                     </div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username" autofocus>
+						{{ form.username }}
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Enter your E-mail">
-						<input class="input100" type="email" name="email" placeholder="E-mail">
+						{{ form.email }}
 						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
 					</div>
                     <div class="wrap-input100 validate-input" data-validate = "Re-enter your E-mail">
-						<input class="input100" type="email" name="re-email" placeholder="confirm your E-mail">
+						{{ form.email_con }}
 						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Enter a valid phone number">
-						<input class="input100" type="text" name="phone" placeholder="Phone number">
+						{{ form.phone }}
 						<span class="focus-input100" data-placeholder="&#xf2b5;"></span>
 					</div>
 
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+						{{ form.date_of_birth }}
+						<span class="focus-input100" data-placeholder="&#xf32e;"></span>
+					</div>
+
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password" >
+						{{ form.password }}
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
+
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" formaction="login">
+						<button class="btn btn-primary btn-lg" type="submit">
 							Register
 						</button>
 					</div>

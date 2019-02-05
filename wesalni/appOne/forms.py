@@ -1,8 +1,10 @@
 from django import forms
 from appOne.models import User
 from django.contrib.auth import get_user_model
-#from phonenumber_field.formfields import PhoneNumberField
-User= get_user_model()
+from phone_field.models import PhoneFormField
+
+User = get_user_model()
+
 class ContactForm(forms.Form):
     fullname= forms.CharField(widget=forms.TextInput(
         attrs={"class":"form-control","placeholder":"your full name"}))
@@ -10,22 +12,30 @@ class ContactForm(forms.Form):
         attrs={"class":"form-control","placeholder":"your email"}) )
     content=forms.CharField(widget=forms.Textarea(
         attrs={"class":"form-control","placeholder":"talk to me"}))
+
+
 class LoginForm(forms.Form):
-    username= forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
-    password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control"}))
+    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True", "Required":"True"}))
+    password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"input100", "placeholder":"Password"}))
    
 
 class RegisterForm(forms.Form):
     username= forms.CharField(widget=forms.TextInput(
-        attrs={"class":"form-control","placeholder":"your username"}))
+        attrs={"class":"input100","placeholder":"Username","autofocus":"True", "Required":"True"}))
     email=forms.EmailField(widget=forms.EmailInput(
-        attrs={"class":"form-control","placeholder":"your email"}) )
-    #phone=PhoneNumberField()
+        attrs={"class":"input100","placeholder":"E-mail", "Required":"True"}) )
+    email_con = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={"class":"input100", "placeholder":"Re-enter your E-mail", "Required":"True"}
+        )
+    )
+    phone = PhoneFormField(widget=forms.TextInput(
+        attrs={'class': 'input100', 'placeholder':'Phone number', 'required':'true', "maxlenght":10}
+    ), max_length=10)
     password= forms.CharField(widget=forms.PasswordInput(
-        attrs={"class":"form-control","placeholder":"your password"}))
-    password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
-        attrs={"class":"form-control","placeholder":"confirm your password"}))
-    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'form-control'}))
+        attrs={"class":"input100","placeholder":"Password","required":"true"}
+    ))
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'input100', "required":"true"}))
     def clean_username(self):
         username = self.cleaned_data.get('username')
         qs =User.objects.filter(username=username)

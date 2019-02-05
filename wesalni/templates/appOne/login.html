@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 <html lang="en">
 <head>
 	<title>Login V3</title>
@@ -56,12 +57,14 @@
                     </div><br>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username" autofocus>
+						<!--<input class="input100" type="text" name="username" placeholder="Username" autofocus>-->
+                        {{ form.username }}
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password" >
+						<!--<input class="input100" type="password" name="pass" placeholder="Password" >-->
+                        {{ form.password }}
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
@@ -73,18 +76,23 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" formaction="login">
+						<button class="btn btn-primary btn-lg" type="submit">
 							Login
 						</button>
+
+
 					</div>
-                    <span class="login100-form-title p-b-34 p-t-27">
-						OR
-					</span>
                     <div class="container-login100-form-btn">
-						<button class="login100-form-btn btn-primary" formaction="{% url 'register' %}">
-							Register
-						</button>
-					</div>
+                    <span class="p-b-34 p-t-27 center">
+                        OR
+                    </span>
+                        </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="btn btn-dark btn-lg" formaction="{% url 'register' %}">
+                            Register
+                        </button>
+                    </div>
 
 					<div class="text-center p-t-90">
 						<a class="txt1" href="#">
