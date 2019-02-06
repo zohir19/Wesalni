@@ -38,6 +38,7 @@
 		<div class="container-login100" style="background-image: url('{% static "img/bg-01.jpg" %}');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST">
+                    {% csrf_token %}
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-account-add"></i>
 					</span>
@@ -58,6 +59,16 @@
                         <span class="fa fa-facebook fa-2x"></span> Register using Facebook
                     </a>
                     </div>
+
+                    {% if error %}
+
+                        <div class="wrap-input100">
+                            <div class="alert alert-danger">
+                                <strong>Registration Error!</strong>
+                            </div>
+                        </div>
+
+                    {% endif %}
 
 					<div class="wrap-input100 validate-input" data-validate = "Invalid username">
 						{{ form.username }}
@@ -90,9 +101,11 @@
 					
 
 					<div class="container-login100-form-btn">
-						<input class="btn btn-primary btn-lg" value="Register"  type="submit">
-							
-						
+						<button class="btn btn-primary btn-lg" type="submit">
+							Register
+						</button>
+
+
 					</div>
 
 					<div class="text-center p-t-90">
@@ -100,7 +113,6 @@
 							Already have an account ?
 						</a>
 					</div>
-                    {% csrf_token %}
 				</form>
 			</div>
 		</div>

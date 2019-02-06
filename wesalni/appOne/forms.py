@@ -1,5 +1,5 @@
 from django import forms
-from appOne.models import User
+from .models import myUser
 from django.contrib.auth import get_user_model
 from phone_field.models import PhoneFormField
 
@@ -15,8 +15,9 @@ class ContactForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True"}))
-    password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"input100", "placeholder":"Password"}))
+    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True"
+                                                            ,"minlength":6}))
+    password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"input100", "placeholder":"Password","minlength":6}))
     remember = forms.CharField(
         widget=forms.CheckboxInput(
             attrs={"class":"input-checkbox100", "checked":True}
@@ -25,22 +26,23 @@ class LoginForm(forms.Form):
    
 
 class RegisterForm(forms.Form):
+
     username= forms.CharField(widget=forms.TextInput(
         attrs={"class":"input100","placeholder":"Username", "autofocus":"True"
                ,"minlength":6}))
     email=forms.EmailField(widget=forms.EmailInput(
         attrs={"class":"input100","placeholder":"E-mail"}) )
     password= forms.CharField(widget=forms.PasswordInput(
-        attrs={"class":"input100","placeholder":"Password"}))
+        attrs={"class":"input100","placeholder":"Password","minlength":6}))
     email_con = forms.EmailField(
         widget=forms.EmailInput(
             attrs={"class":"input100", "placeholder":"Re enter your E-mail"}
         )
     )
-    phone = PhoneFormField(
+    phone = forms.CharField(
         max_length=10,
         widget=forms.TextInput(
-            attrs={"class":"input100", "placeholder":"Phone number", "maxlength":10
+            attrs={"class":"input100", "placeholder":"Phone number (+213512345678)"
                    ,"minlength":10}
         )
     )
@@ -66,6 +68,6 @@ class RegisterForm(forms.Form):
         email1 = self.cleaned_data.get('email')
         email2 = self.cleaned_data.get("email_con")
 
-        if email1 != email2:
+        if email2 != email1:
             raise forms.ValidationError("Email doesn't match")
         return data

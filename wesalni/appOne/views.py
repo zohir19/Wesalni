@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
+import django
 from appOne.forms import ContactForm, LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, get_user_model,logout
+from .models import myUser as mUser
 
 
 # Create your views here.
+
+django.setup()
+
 def home_page(request):
     contexte = {
         'title': 'Home page',
@@ -42,14 +47,13 @@ def login_page(request):
         "title": "Login or Register",
         "form": form
     }
-    print("User logged in")
     if form.is_valid():
         print(form.cleaned_data)
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         user = authenticate(request, username=username, password=password)
         print(user)
-        if user is not None:
+        if user is not None and password is not None:
             login(request, user)
             return redirect('/')
         else:
@@ -57,9 +61,7 @@ def login_page(request):
             print("ERROR")
     return render(request, "appOne/login.html", contexte)
 
-
-User = get_user_model()
-
+User = mUser()
 
 def register_page(request):
     form = RegisterForm(request.POST or None)
@@ -71,12 +73,17 @@ def register_page(request):
         print(form.cleaned_data)
         username = form.cleaned_data.get("username")
         email = form.cleaned_data.get("email")
+        email_con = form.cleaned_data.get("email_con")
         password = form.cleaned_data.get("password")
         birth_date=form.cleaned_data.get("date_of_birth")
-        #phone=form.cleaned_data.get("phone")
+        phone=form.cleaned_data.get("phone")
         #city=form.cleaned_data.get("city")
-        new_user = User.objects.create_user(username, email, password,birth_date)
+
+        new_user = mUser.objects.create()
+        new_user.save()
         print(new_user)
+        if email != email_con:
+            contexte["error"] = True
     return render(request, "appOne/register.html", contexte)
 
 
