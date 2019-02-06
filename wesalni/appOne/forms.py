@@ -15,19 +15,40 @@ class ContactForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True", "Required":"True"}))
+    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True"}))
     password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"input100", "placeholder":"Password"}))
+    remember = forms.CharField(
+        widget=forms.CheckboxInput(
+            attrs={"class":"input-checkbox100", "checked":True}
+        )
+    )
    
 
 class RegisterForm(forms.Form):
     username= forms.CharField(widget=forms.TextInput(
-        attrs={"class":"form-control","placeholder":"your username"}))
+        attrs={"class":"input100","placeholder":"Username", "autofocus":"True"
+               ,"minlength":6}))
     email=forms.EmailField(widget=forms.EmailInput(
-        attrs={"class":"form-control","placeholder":"your email"}) )
+        attrs={"class":"input100","placeholder":"E-mail"}) )
     password= forms.CharField(widget=forms.PasswordInput(
-        attrs={"class":"form-control","placeholder":"your password"}))
-    password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
-        attrs={"class":"form-control","placeholder":"confirm your password"}))
+        attrs={"class":"input100","placeholder":"Password"}))
+    email_con = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={"class":"input100", "placeholder":"Re enter your E-mail"}
+        )
+    )
+    phone = PhoneFormField(
+        max_length=10,
+        widget=forms.TextInput(
+            attrs={"class":"input100", "placeholder":"Phone number", "maxlength":10
+                   ,"minlength":10}
+        )
+    )
+    date_of_birth = forms.DateField(
+        widget=forms.DateInput(
+            attrs={"class":"input100", "type":"date"}
+        )
+    )
     def clean_username(self):
         username = self.cleaned_data.get('username')
         qs = User.objects.filter(username=username)
@@ -42,8 +63,9 @@ class RegisterForm(forms.Form):
         return email
     def clean(self):
         data=self.cleaned_data
-        password=self.cleaned_data.get("password")
-        password2=self.cleaned_data.get("password2")
-        if password!= password2:
-            raise forms.ValidationError("Passwords must match.")
+        email1 = self.cleaned_data.get('email')
+        email2 = self.cleaned_data.get("email_con")
+
+        if email1 != email2:
+            raise forms.ValidationError("Email doesn't match")
         return data

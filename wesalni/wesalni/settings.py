@@ -25,7 +25,7 @@ SECRET_KEY = '3xjp0vp0l)gu+@inxp#*3l!$5i*lcg!9g%+$uz)awpp$54=8^3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost","192.168.43.1", "192.168.43.11"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost","192.168.43.1", "192.168.43.11","192.168.43.222","192.168.43.228"]
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'social_django',
     'crispy_forms',
     'phone_field',
+    'phonenumber_field',
 ]
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',

@@ -53,6 +53,7 @@ def login_page(request):
             login(request, user)
             return redirect('/')
         else:
+            contexte["error"] = True
             print("ERROR")
     return render(request, "appOne/login.html", contexte)
 

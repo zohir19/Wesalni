@@ -4,3 +4,4 @@ social-auth-app-django
 django-crispy-forms
 django-phone-field
 phonenumbers
+django-phonenumber-field
