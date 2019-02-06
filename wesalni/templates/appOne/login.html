@@ -91,17 +91,9 @@
                     </span>
                         </div>
 
-
-                    {% csrf_token %}
-				</form>
-                <div class="container-login100-form-btn">
-                    <a href="{% url 'register' %}">
-                        <button class="btn btn-dark btn-lg">
-
-                                Register
-
-                        </button>
-                    </a>
+                    <div class="container-login100-form-btn">
+                        
+						<a class="btn btn-dark btn-lg" href="{% url 'register' %}">Register</a>
                     </div>
 
 					<div class="text-center p-t-80">
@@ -109,6 +101,8 @@
 							Forgot Password?
 						</a>
 					</div>
+                    {% csrf_token %}
+				</form>
 
 			</div>
 		</div>

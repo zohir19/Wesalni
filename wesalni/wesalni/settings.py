@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'appOne',
     'social_django',
     'crispy_forms',
-    #'phone_field',
+    'phone_field',
 ]
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
