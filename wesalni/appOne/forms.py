@@ -1,7 +1,8 @@
 from django import forms
-from .models import myUser
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from phone_field.models import PhoneFormField
+from .models import myUser
 
 User = get_user_model()
 
@@ -25,9 +26,9 @@ class LoginForm(forms.Form):
     )
    
 
-class RegisterForm(forms.Form):
+class RegisterForm(UserCreationForm):
 
-    username= forms.CharField(widget=forms.TextInput(
+    username = forms.CharField(widget=forms.TextInput(
         attrs={"class":"input100","placeholder":"Username", "autofocus":"True"
                ,"minlength":6}))
     email=forms.EmailField(widget=forms.EmailInput(
@@ -71,3 +72,7 @@ class RegisterForm(forms.Form):
         if email2 != email1:
             raise forms.ValidationError("Email doesn't match")
         return data
+
+    class Meta:
+        model = User
+        exclude = ['email_con']

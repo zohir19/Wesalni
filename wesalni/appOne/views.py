@@ -1,13 +1,9 @@
 from django.shortcuts import render, redirect
-import django
-from appOne.forms import ContactForm, LoginForm, RegisterForm
-from django.contrib.auth import authenticate, login, get_user_model,logout
-from .models import myUser as mUser
+from .forms import ContactForm, LoginForm, RegisterForm
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
-
-django.setup()
 
 def home_page(request):
     contexte = {
@@ -61,29 +57,31 @@ def login_page(request):
             print("ERROR")
     return render(request, "appOne/login.html", contexte)
 
-User = mUser()
 
 def register_page(request):
-    form = RegisterForm(request.POST or None)
-    contexte = {
-        "title": "Register",
-        "form": form
-    }
-    if form.is_valid():
-        print(form.cleaned_data)
-        username = form.cleaned_data.get("username")
-        email = form.cleaned_data.get("email")
-        email_con = form.cleaned_data.get("email_con")
-        password = form.cleaned_data.get("password")
-        birth_date=form.cleaned_data.get("date_of_birth")
-        phone=form.cleaned_data.get("phone")
-        #city=form.cleaned_data.get("city")
 
-        new_user = mUser.objects.create()
-        new_user.save()
-        print(new_user)
-        if email != email_con:
-            contexte["error"] = True
+    contexte = {"title": "Register"}
+
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
+            email_con = form.cleaned_data.get("email_con")
+            password = form.cleaned_data.get("password")
+            birth_date=form.cleaned_data.get("date_of_birth")
+            phone=form.cleaned_data.get("phone")
+            #city=form.cleaned_data.get("city")
+            if email != email_con:
+                contexte["error"] = True
+            form.save()
+            user = authenticate(username=username, password=password)
+            login_page(request, user)
+            return redirect('/')
+    else:
+        form = RegisterForm()
+
+    contexte["form"] = form
     return render(request, "appOne/register.html", contexte)
 
 
