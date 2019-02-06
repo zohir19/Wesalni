@@ -1,150 +1,16 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-<head>
-	<title>
-        {{ title }}
-    </title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-    <link rel="icon" href={% static 'favicon.ico' %}>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/login-util.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/login-main.css' %}">
-<!--===============================================================================================-->
+<html>
+<head><title>{{title}}</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="col-sm-6 col-12">
+<form method='POST'>
+<p> Sign-up</p>
+{% csrf_token %}
+{{ form }}
 
-    {% include 'appOne/header.html' %}
-
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('{% static "img/bg-01.jpg" %}');">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST">
-                    {% csrf_token %}
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-account-add"></i>
-					</span>
-
-					<span class="login100-form-title p-b-34 p-t-27">
-						Register
-					</span>
-
-                    <div class="wrap-input100">
-                    <a class="btn btn-block btn-social btn-dark" style="color: white" href="{% url 'social:begin' 'github' %}">
-                        <span class="fa fa-github fa-2x"></span> Register using Github
-                    </a>
-
-                    <a class="btn btn-block btn-social btn-danger" style="color: white" href="{% url 'social:begin' 'google' %}">
-                        <span class="fa fa-google fa-2x"></span> Register using Google
-                    </a>
-                        <a class="btn btn-block btn-social btn-primary" style="color: white" href="{% url 'social:begin' 'facebook' %}">
-                        <span class="fa fa-facebook fa-2x"></span> Register using Facebook
-                    </a>
-                    </div>
-
-                    {% if error %}
-
-                        <div class="wrap-input100">
-                            <div class="alert alert-danger">
-                                <strong>Registration Error!</strong>
-                            </div>
-                        </div>
-
-                    {% endif %}
-
-					<div class="wrap-input100 validate-input" data-validate = "Invalid username">
-						{{ form.username }}
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Invalid E-mail">
-						{{ form.email }}
-						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
-					</div>
-                    <div class="wrap-input100 validate-input" data-validate = "Re-enter your E-mail">
-						{{ form.email_con }}
-						<span class="focus-input100" data-placeholder="&#xf15a;"></span>
-					</div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Enter a valid phone number">
-						{{ form.phone }}
-						<span class="focus-input100" data-placeholder="&#xf2b5;"></span>
-					</div>
-					
-                    <div class="wrap-input100 validate-input date" data-validate="Invalid Date">
-						{{ form.date_of_birth }}
-						<span class="focus-input100" data-placeholder="&#xf32e;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter a password">
-						{{ form.password }}
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-					
-
-					<div class="container-login100-form-btn">
-						<button class="btn btn-primary btn-lg" type="submit">
-							Register
-						</button>
-
-
-					</div>
-
-					<div class="text-center p-t-90">
-						<a class="txt1" href="{% url 'login' %}">
-							Already have an account ?
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
-	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'js/login-main.js' %}"></script>
-    <script type="text/javascript">
-        document.getElementById('id_username').removeAttribute('required');
-        document.getElementById('id_email').removeAttribute('required');
-        document.getElementById('id_email_con').removeAttribute('required');
-        document.getElementById('id_phone').removeAttribute('required');
-        document.getElementById('id_date_of_birth').removeAttribute('required');
-        document.getElementById('id_password').removeAttribute('required');
-    </script>
-
+<input class="btn btn-primary", value="sign-up" type="submit">
+</form>
+</div>
 </body>
-</html>
+
