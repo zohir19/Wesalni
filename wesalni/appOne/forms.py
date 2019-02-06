@@ -1,8 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from appOne.models import User
 from django.contrib.auth import get_user_model
-from .models import myUser
+from phone_field.models import PhoneFormField
 
 User = get_user_model()
 
@@ -16,42 +15,20 @@ class ContactForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True"
-                                                            ,"minlength":6}))
-    password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"input100", "placeholder":"Password","minlength":6}))
-    remember = forms.CharField(
-        widget=forms.CheckboxInput(
-            attrs={"class":"input-checkbox100", "checked":True}
-        )
-    )
+    username= forms.CharField(widget=forms.TextInput(attrs={"class":"input100", "placeholder":"Username", "autofocus":"True", "Required":"True"}))
+    password= forms.CharField(widget=forms.PasswordInput(attrs={"class":"input100", "placeholder":"Password"}))
    
 
-class RegisterForm(UserCreationForm):
-
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={"class":"input100","placeholder":"Username", "autofocus":"True"
-               ,"minlength":6}))
+class RegisterForm(forms.Form):
+    username= forms.CharField(widget=forms.TextInput(
+        attrs={"class":"form-control","placeholder":"your username"}))
     email=forms.EmailField(widget=forms.EmailInput(
-        attrs={"class":"input100","placeholder":"E-mail"}) )
+        attrs={"class":"form-control","placeholder":"your email"}) )
     password= forms.CharField(widget=forms.PasswordInput(
-        attrs={"class":"input100","placeholder":"Password","minlength":6}))
-    email_con = forms.EmailField(
-        widget=forms.EmailInput(
-            attrs={"class":"input100", "placeholder":"Re enter your E-mail"}
-        )
-    )
-    phone = forms.CharField(
-        max_length=10,
-        widget=forms.TextInput(
-            attrs={"class":"input100", "placeholder":"Phone number (+213512345678)"
-                   ,"minlength":10}
-        )
-    )
-    date_of_birth = forms.DateField(
-        widget=forms.DateInput(
-            attrs={"class":"input100", "type":"date"}
-        )
-    )
+        attrs={"class":"form-control","placeholder":"your password"}))
+    password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
+        attrs={"class":"form-control","placeholder":"confirm your password"}))
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'input100', "required":"true"}))
     def clean_username(self):
         username = self.cleaned_data.get('username')
         qs = User.objects.filter(username=username)
@@ -66,13 +43,8 @@ class RegisterForm(UserCreationForm):
         return email
     def clean(self):
         data=self.cleaned_data
-        email1 = self.cleaned_data.get('email')
-        email2 = self.cleaned_data.get("email_con")
-
-        if email2 != email1:
-            raise forms.ValidationError("Email doesn't match")
+        password=self.cleaned_data.get("password")
+        password2=self.cleaned_data.get("password2")
+        if password!= password2:
+            raise forms.ValidationError("Passwords must match.")
         return data
-
-    class Meta:
-        model = User
-        exclude = ['email_con']
