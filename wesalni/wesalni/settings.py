@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appOne',
+    'Client',
+    'Driver',
     'social_django',
     'crispy_forms',
     'phone_field',

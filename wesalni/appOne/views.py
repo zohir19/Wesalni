@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from appOne.forms import ContactForm, LoginForm, RegisterForm
+from .forms import ContactForm, LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, get_user_model,logout,update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
@@ -53,7 +53,7 @@ def login_page(request):
         print(user)
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect("/client/")
         else:
             contexte["error"] = True
             print("ERROR")
@@ -82,7 +82,7 @@ def register_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect('/client/')
 
     return render(request, "appOne/register.html", contexte)
 
