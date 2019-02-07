@@ -62,9 +62,10 @@
 
                     {% if error %}
 
-                        <div class="wrap-input100">
-                            <div class="alert alert-danger">
-                                <strong>Registration Error!</strong>
+                        <div class="wrap-input100" id="alert">
+                            <div class="alert alert-danger alert-dismissible hidden">
+                                <a class="btn btn-block" onclick="javascript:closeAlert()"><i class="fa fa-close fa-pull-right"></i></a>
+                                <strong>Registration Error!</strong> Please retry later
                             </div>
                         </div>
 
@@ -132,12 +133,15 @@
 <!--===============================================================================================-->
 	<script src="{% static 'js/login-main.js' %}"></script>
     <script type="text/javascript">
+
         document.getElementById('id_username').removeAttribute('required');
         document.getElementById('id_email').removeAttribute('required');
-        document.getElementById('id_email_con').removeAttribute('required');
-        document.getElementById('id_phone').removeAttribute('required');
         document.getElementById('id_date_of_birth').removeAttribute('required');
         document.getElementById('id_password').removeAttribute('required');
+
+        function closeAlert() {
+            document.getElementById('alert').hidden = true
+        }
     </script>
 
 </body>

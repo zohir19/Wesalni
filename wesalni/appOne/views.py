@@ -44,7 +44,6 @@ def login_page(request):
         "title": "Login or Register",
         "form": form
     }
-    print("User logged in")
     if form.is_valid():
         print(form.cleaned_data)
         username = form.cleaned_data.get("username")
@@ -83,6 +82,9 @@ def register_page(request):
         if user is not None:
             login(request, user)
             return redirect('/client/')
+        else:
+            contexte["error"] = True
+
 
     return render(request, "appOne/register.html", contexte)
 

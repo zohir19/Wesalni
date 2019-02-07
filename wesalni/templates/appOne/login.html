@@ -61,8 +61,9 @@
 
                     {% if error %}
 
-                        <div class="wrap-input100">
+                        <div class="wrap-input100" id="alert">
                             <div class="alert alert-danger">
+                                <a class="btn btn-block" onclick="javascript:closeAlert()"><i class="fa fa-close fa-pull-right"></i></a>
                                 <strong>Login Error!</strong> Username or Password Incorrect !
                             </div>
                         </div>
@@ -142,8 +143,12 @@
 <!--===============================================================================================-->
 	<script src="{% static 'js/login-main.js' %}"></script>
     <script type="text/javascript">
-        document.getElementById('id_username').removeAttribute("required")
-        document.getElementById('id_password').removeAttribute("required")
+        document.getElementById('id_username').removeAttribute("required");
+        document.getElementById('id_password').removeAttribute("required");
+
+        function closeAlert() {
+            document.getElementById('alert').hidden = true
+        }
     </script>
 
 
