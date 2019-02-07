@@ -83,8 +83,7 @@ def register_page(request):
         if user is not None:
             login(request, user)
             return redirect('/')
-        else:
-            contexte["error"] = True
+
     return render(request, "appOne/register.html", contexte)
 
 
