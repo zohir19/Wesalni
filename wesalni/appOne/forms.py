@@ -21,14 +21,14 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
     username= forms.CharField(widget=forms.TextInput(
-        attrs={"class":"form-control","placeholder":"your username"}))
+        attrs={"class":"input100","placeholder":"Username"}))
     email=forms.EmailField(widget=forms.EmailInput(
-        attrs={"class":"form-control","placeholder":"your email"}) )
+        attrs={"class":"input100","placeholder":"E-mail"}) )
     password= forms.CharField(widget=forms.PasswordInput(
-        attrs={"class":"form-control","placeholder":"your password"}))
+        attrs={"class":"input100","placeholder":"Password"}))
     password2= forms.CharField(label="Confirm password",widget=forms.PasswordInput(
-        attrs={"class":"form-control","placeholder":"confirm your password"}))
-    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'input100','class':'form-control', "required":"true"}))
+        attrs={"class":"input100","placeholder":"Confirm your Password"}))
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date','class':'input100', "required":"true"}))
     def clean_username(self):
         username = self.cleaned_data.get('username')
         qs = User.objects.filter(username=username)

@@ -55,6 +55,7 @@ def login_page(request):
             login(request, user)
             return redirect('/')
         else:
+            contexte["error"] = True
             print("ERROR")
     return render(request, "appOne/login.html", contexte)
 
@@ -78,6 +79,12 @@ def register_page(request):
         #city=form.cleaned_data.get("city")
         new_user = User.objects.create_user(username, email, password)
         print(new_user)
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            contexte["error"] = True
     return render(request, "appOne/register.html", contexte)
 
 
