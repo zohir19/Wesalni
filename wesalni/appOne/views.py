@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from appOne.forms import ContactForm, LoginForm, RegisterForm
-from django.contrib.auth import authenticate, login, get_user_model,logout
+from django.contrib.auth import authenticate, login, get_user_model,logout,update_session_auth_hash
+from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 # Create your views here.

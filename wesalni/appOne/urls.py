@@ -12,4 +12,6 @@ urlpatterns = [
     path('account/',views.account_page,name='account'),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('logout/',views.logout_page,name='logout'),
+    
+
 ]

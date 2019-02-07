@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-
+from django.urls import reverse_lazy
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -139,7 +139,7 @@ STATICFILES_DIRS=[
 ]
 
 
-LOGIN_REDIRECT_URL = 'post_list'
+LOGIN_REDIRECT_URL = reverse_lazy('home')
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='718871831217-8f686tqqjcdclihj8h353mde07fniuge.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='9jcbcNIhig7ITWEgEnT1R_xV'
 SOCIAL_AUTH_GITHUB_KEY='ef3d042bc9a8ba8abfad'
@@ -147,3 +147,5 @@ SOCIAL_AUTH_GITHUB_SECRET='3ae3235cbb5631719d6ae55912d8b9c57a708412'
 SOCIAL_AUTH_FACEBOOk_KEY=''
 SOCIAL_AUTH_FACEBOOK_SECRET=''
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend '
