@@ -16,3 +16,8 @@
     </div>
  
 {% endblock %}
+{% block body_block %}
+    <script type="text/javascript">
+        document.location = "{% url 'home' %}";
+    </script>
+{% endblock %}
