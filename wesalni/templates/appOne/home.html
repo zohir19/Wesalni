@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="{% static 'css/w3.css' %}">
 <link rel="stylesheet" href="{% static 'fonts/raleway.css' %}">
 <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<script>window.jQuery || document.write('<script src={% static 'js/jquery-1.12.4.min.js' %}>\x3C/script>')</script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
 <style>
 h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 body {font-family: "Open Sans", sans-serif}
@@ -59,7 +65,7 @@ body {font-family: "Open Sans", sans-serif}
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-  <img class="w3-image" src="{% static 'img/w3images/sanfran.jpg' %}" alt="London" width="1500" height="700">
+  <img class="w3-image" src="{% static 'img/w3images/Algeria.jpg' %}" alt="Algeria" width="1500" height="700">
   <div class="w3-display-middle" style="width:65%">
     <div class="w3-bar w3-black">
       <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
@@ -69,7 +75,7 @@ body {font-family: "Open Sans", sans-serif}
 
     <!-- Tabs -->
     <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
-      <h3>Travel the world with us</h3>
+      <h3>Travel with us across Algeria</h3>
       <div class="w3-row-padding" style="margin:0 -16px;">
         <div class="w3-half">
           <label>From</label>
@@ -110,36 +116,36 @@ body {font-family: "Open Sans", sans-serif}
   <div class="w3-row-padding w3-text-white w3-large">
     <div class="w3-half w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="{% static 'img/w3images/cinqueterre.jpg' %}" alt="Cinque Terre" style="width:100%">
-        <span class="w3-display-bottomleft w3-padding">Cinque Terre</span>
+        <img src="{% static 'img/w3images/Tlemcen.jpg' %}" alt="Cinque Terre" style="width:100%">
+        <span class="w3-display-bottomleft w3-padding">Tlemcen</span>
       </div>
     </div>
     <div class="w3-half">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="{% static 'img/w3images/newyork2.jpg' %}" alt="New York" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">New York</span>
+            <img src="{% static 'img/w3images/Algiers.jpg' %}" alt="Algiers" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">Algiers</span>
           </div>
         </div>
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="{% static 'img/w3images/sanfran.jpg' %}" alt="San Francisco" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">San Francisco</span>
+            <img src="{% static 'img/w3images/Oran.jpg' %}" alt="Oran" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">Oran</span>
           </div>
         </div>
       </div>
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="{% static 'img/w3images/pisa.jpg' %}" alt="Pisa" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">Pisa</span>
+            <img src="{% static 'img/w3images/biskra.jpg' %}" alt="Biskra" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">Biskra</span>
           </div>
         </div>
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="{% static 'img/w3images/paris.jpg' %}" alt="Paris" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">Paris</span>
+            <img src="{% static 'img/w3images/tamanrasset.jpg' %}" alt="Tamanrasset" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">Tamanrasset</span>
           </div>
         </div>
       </div>
@@ -153,18 +159,18 @@ body {font-family: "Open Sans", sans-serif}
   </div>
   <div class="w3-row-padding">
     <div class="w3-half w3-margin-bottom">
-      <img src="{% static 'img/w3images/ocean2.jpg' %}" alt="Norway" style="width:100%">
+      <img src="{% static 'img/w3images/chrea.jpg' %}" alt="Norway" style="width:100%">
       <div class="w3-container w3-white">
-        <h3>West Coast, Norway</h3>
+        <h3>chrea heights, Blida</h3>
         <p class="w3-opacity">Roundtrip from $79</p>
         <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
         <button class="w3-button w3-margin-bottom">Buy Tickets</button>
       </div>
     </div>
     <div class="w3-half w3-margin-bottom">
-      <img src="{% static 'img/w3images/mountains2.jpg' %}" alt="Austria" style="width:100%">
+      <img src="{% static 'img/w3images/bejaia.jpg' %}" alt="bejaia" style="width:100%">
       <div class="w3-container w3-white">
-        <h3>Mountains, Austria</h3>
+        <h3>Virgin beaches, Bejaia</h3>
         <p class="w3-opacity">One-way from $39</p>
         <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
         <button class="w3-button w3-margin-bottom">Buy Tickets</button>
@@ -202,17 +208,59 @@ body {font-family: "Open Sans", sans-serif}
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
-  <h5>Find Us On</h5>
-  <div class="w3-xlarge w3-padding-16">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+<footer class="footer fixed-bottom footer-distributed ">
+<div class="container-fluid">
+<div class="col-container">
+  <div class="col-sm-4">
+     <h3>wesalni<span> وصلني</span></h3>
+
+				<p class="footer-links">
+					<a href="{% url 'home' %}">Home</a>
+					·
+
+					<a href="{% url 'contact' %}">Contact Us</a>
+					·
+					<a href="{% url 'about' %}">About</a>
+					·
+					<a href="#">Faq</a>
+					·
+                    <a href="{% url 'terms' %}">Terms & conditions</a>
+
+				</p>
+
+				<p class="footer-company-name">Company Name &copy; 2019</p>
   </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+
+  <div class="col-sm-4">
+    <div>
+					<i class="fa fa-map-marker"><span> 21 Revolution Street</span> Tlemcen, Algeria</i>
+					<p></p>
+				</div>
+				<div>
+					<i class="fa fa-phone"> +1 555 123456</i>
+				</div>
+
+				<div>
+
+					<a href="mailto:support@wesalni.com"class="fa fa-envelope">support@wesalni.com</a>
+				</div>
+  </div>
+
+  <div class="col-sm-4">
+
+         <input type="text" class="form-control" id="usr"placeholder="Subscribe to our newsletter"><button class="btn btn-primary">subscribe</button>
+
+
+				<div class="footer-icons">
+
+					<a href="https://www.facebook.com/"><i class="fa fa-2x fa-facebook"></i></a>
+					<a href="https://twitter.com/"><i class="fa fa-2x fa-twitter"></i></a>
+					<a href="https://www.google.com/"><i class="fa fa-2x fa-google"></i></a>
+					<a href='https://github.com/zohir19/Wesalni'><i class="fa fa-2x fa-github"></i></a>
+
+				</div>
+  </div>
+</div> 
 </footer>
 
 <script>
