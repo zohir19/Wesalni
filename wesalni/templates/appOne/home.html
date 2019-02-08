@@ -38,8 +38,8 @@ body {font-family: "Open Sans", sans-serif}
       <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-right w3-padding-large"><i class="fa fa-user-circle w3-margin-right"></i>Profile</a>
 
      {% else %}
-      <a href="{% url 'register' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-theme-d4"><i class="fa fa-user-plus w3-margin-right"></i>Register</a>
-            <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-theme-d4"><i class="fa fa-user w3-margin-right"></i>Login</a>
+      <a href="{% url 'register' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-blue"><i class="fa fa-user-plus w3-margin-right"></i>Register</a>
+            <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-green"><i class="fa fa-user w3-margin-right"></i>Login</a>
      {% endif %}
 
 
@@ -62,7 +62,7 @@ body {font-family: "Open Sans", sans-serif}
   <img class="w3-image" src="{% static 'img/w3images/sanfran.jpg' %}" alt="London" width="1500" height="700">
   <div class="w3-display-middle" style="width:65%">
     <div class="w3-bar w3-black">
-      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-search w3-margin-right"></i>Search</button>
       <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Hotel');"><i class="fa fa-bed w3-margin-right"></i>Hotel</button>
       <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-car w3-margin-right"></i>Rental</button>
     </div>
@@ -187,10 +187,10 @@ body {font-family: "Open Sans", sans-serif}
   <div class="w3-container">
     <h2>Contact</h2>
     <p>Let us book your next trip!</p>
-    <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
-    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
-    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-    <form action="/action_page.php" target="_blank">
+    <i class="fa fa-map-marker" style="width:30px"></i> Tlemcen, DZ<br>
+    <i class="fa fa-phone" style="width:30px"></i> Phone: +213 556436074<br>
+    <i class="fa fa-envelope" style="width:30px"> </i> Email: admin@mail.com<br>
+    <form action="" target="_blank">
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
