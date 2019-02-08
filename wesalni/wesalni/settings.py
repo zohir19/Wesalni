@@ -14,8 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATES_DIR=os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -25,8 +25,7 @@ SECRET_KEY = '3xjp0vp0l)gu+@inxp#*3l!$5i*lcg!9g%+$uz)awpp$54=8^3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost","192.168.43.1", "192.168.43.11","192.168.43.222","192.168.43.228"]
-
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "192.168.43.1", "192.168.43.11", "192.168.43.222", "192.168.43.228"]
 
 # Application definition
 
@@ -70,7 +69,7 @@ ROOT_URLCONF = 'wesalni.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR,],
+        'DIRS': [TEMPLATES_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +86,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wesalni.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -97,7 +95,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -117,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -131,23 +127,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
+STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-
 LOGIN_REDIRECT_URL = reverse_lazy('home')
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='718871831217-8f686tqqjcdclihj8h353mde07fniuge.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='9jcbcNIhig7ITWEgEnT1R_xV'
-SOCIAL_AUTH_GITHUB_KEY='ef3d042bc9a8ba8abfad'
-SOCIAL_AUTH_GITHUB_SECRET='3ae3235cbb5631719d6ae55912d8b9c57a708412'
-SOCIAL_AUTH_FACEBOOk_KEY=''
-SOCIAL_AUTH_FACEBOOK_SECRET=''
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '718871831217-8f686tqqjcdclihj8h353mde07fniuge.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '9jcbcNIhig7ITWEgEnT1R_xV'
+SOCIAL_AUTH_GITHUB_KEY = 'ef3d042bc9a8ba8abfad'
+SOCIAL_AUTH_GITHUB_SECRET = '3ae3235cbb5631719d6ae55912d8b9c57a708412'
+SOCIAL_AUTH_FACEBOOk_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend '

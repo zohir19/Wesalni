@@ -41,7 +41,7 @@ def contact_page(request):
 def login_page(request):
     form = LoginForm(request.POST or None)
     contexte = {
-        "title": "Login or Register",
+        "title": "Login",
         "form": form
     }
     if form.is_valid():
@@ -52,7 +52,7 @@ def login_page(request):
         print(user)
         if user is not None:
             login(request, user)
-            return redirect("/client/")
+            return redirect("/")
         else:
             contexte["error"] = True
             print("ERROR")
@@ -81,7 +81,7 @@ def register_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/client/')
+            return redirect('/')
         else:
             contexte["error"] = True
 
