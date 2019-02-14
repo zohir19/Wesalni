@@ -1,9 +1,36 @@
 {% load staticfiles %}
 
-<nav class="navbar navbar-default">
-<div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"> <span class="sr-only">Wesalni</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="{% url 'home' %}">Wesalni</a> </div>
-      <a href="{% url 'home' %}" class="fa fa-arrow-circle-left btn btn-primary" > Go back</a>
-</nav>
+<!-- Navigation Bar -->
+<!-- Navbar -->
+<div class="w3-top w3-blue-grey">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large w3-theme-d4 w3-blue"><i class="fa fa-home w3-margin-right"></i>HOME</a>
+  {% if user.is_authenticated %}
+     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Offer a ride"><i class="fa fa-car"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Find a ride"><i class="fa fa-road"></i></a>
+  <a href="{% url 'contact' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Contact"><i class="fa fa-envelope"></i></a>
+      <a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-theme-d4"><i class="fa fa-sign-out w3-margin-right"></i>Logout</a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">4</span></button>
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+    </div>
+  </div>
+      <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-right w3-padding-large"><i class="fa fa-user-circle w3-margin-right"></i>Profile</a>
+
+  {% elif register or login %}
+      
+  {% else %}
+      <a href="{% url 'register' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-theme-d4"><i class="fa fa-user-plus w3-margin-right"></i>Register</a>
+            <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-right w3-padding-large w3-theme-d4"><i class="fa fa-user w3-margin-right"></i>Login</a>
+     {% endif %}
+
+
+
+
+
+ </div>
+</div>

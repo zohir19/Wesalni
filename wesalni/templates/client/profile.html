@@ -6,48 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="{% static 'favicon.ico' %}">
 <link rel="stylesheet" href="{% static 'css/w3.css' %}">
-<link rel="stylesheet" href="{% static 'css/w3-theme-blue-grey.css' %}">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
-<script>window.jQuery || document.write('<script src={% static 'js/jquery-1.12.4.min.js' %}>\x3C/script>')</script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/footer.css' %}">
 <style>
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 </style>
 <body class="w3-theme-l5">
 
-<!-- Navbar -->
-<div class="w3-top w3-blue-grey">
- <div class="w3-bar  w3-left-align w3-large">
-  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large"><i class="fa fa-home w3-margin-right"></i>HOME</a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Offer a ride"><i class="fa fa-car"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Find a ride"><i class="fa fa-road"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Contact"><i class="fa fa-envelope"></i></a>
-     <a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-right w3-padding-large"><i class="fa fa-sign-out w3-margin-right"></i>Logout</a>
-  <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
-      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
-      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
-    </div>
-  </div>
-
- </div>
-</div>
-
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
-</div>
+{% include 'appOne/header.html' %}
 
 <!-- Page Container -->
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
@@ -247,67 +213,13 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 </div>
 <br>
 
-<!-- Footer -->
-<footer class="footer fixed-bottom footer-distributed ">
-<div class="container-fluid">
-<div class="col-container">
-  <div class="col-sm-4">
-     <h3>wesalni<span> وصلني</span></h3>
-
-				<p class="footer-links">
-					<a href="{% url 'home' %}">Home</a>
-					·
-
-					<a href="{% url 'contact' %}">Contact Us</a>
-					·
-					<a href="{% url 'about' %}">About</a>
-					·
-					<a href="#">Faq</a>
-					·
-                    <a href="{% url 'terms' %}">Terms & conditions</a>
-
-				</p>
-
-				<p class="footer-company-name">Company Name &copy; 2019</p>
-  </div>
-
-  <div class="col-sm-4">
-    <div>
-					<i class="fa fa-map-marker"><span> 21 Revolution Street</span> Tlemcen, Algeria</i>
-					<p></p>
-				</div>
-				<div>
-					<i class="fa fa-phone"> +1 555 123456</i>
-				</div>
-
-				<div>
-
-					<a href="mailto:support@wesalni.com"class="fa fa-envelope">support@wesalni.com</a>
-				</div>
-  </div>
-
-  <div class="col-sm-4">
-
-         <input type="text" class="form-control" id="usr"placeholder="Subscribe to our newsletter"><button class="btn btn-primary">subscribe</button>
-
-
-				<div class="footer-icons">
-
-					<a href="https://www.facebook.com/"><i class="fa fa-2x fa-facebook"></i></a>
-					<a href="https://twitter.com/"><i class="fa fa-2x fa-twitter"></i></a>
-					<a href="https://www.google.com/"><i class="fa fa-2x fa-google"></i></a>
-					<a href='https://github.com/zohir19/Wesalni'><i class="fa fa-2x fa-github"></i></a>
-
-				</div>
-  </div>
-</div> 
-</footer>
+{% include 'appOne/footer.html' %}
 
 <script>
 // Accordion
 function myFunction(id) {
   var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
+  if (x.className.indexOf("w3-show") === -1) {
     x.className += " w3-show";
     x.previousElementSibling.className += " w3-theme-d1";
   } else {

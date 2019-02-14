@@ -24,16 +24,26 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login-util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login-main.css' %}">
 <!--===============================================================================================-->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="{% static 'css/w3.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/raleway.css' %}">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+body {font-family: "Open Sans", sans-serif}
+.myLink {display: none}
+</style>
 </head>
 <body>
-
-    {% include 'appOne/header.html' %}
-
+<br><br>
+{% if user.is_authenticated %}
+    <script type="text/javascript">
+        document.location = "{% url 'home' %}";
+    </script>
+{% endif %}
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{% static "img/bg-01.jpg" %}');">
 			<div class="wrap-login100">
@@ -143,6 +153,8 @@
             document.getElementById('alert').hidden = true
         }
     </script>
+{% include 'appOne/header.html' %}
+{% include 'appOne/footer.html' %}
 
 </body>
 </html>

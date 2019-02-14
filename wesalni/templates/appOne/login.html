@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 <html lang="en">
 <head>
-	<title>
+    <title>
         {{ title }}
     </title>
 	<meta charset="UTF-8">
@@ -19,21 +19,31 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login-util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login-main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
 <!--===============================================================================================-->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="{% static 'css/w3.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/raleway.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+body {font-family: "Open Sans", sans-serif}
+</style>
 </head>
-<body>
-{% include 'appOne/header.html' %}
+
+<body class="w3-theme-l5">
+<br><br>
+{% if user.is_authenticated %}
+    <script type="text/javascript">
+        document.location = "{% url 'home' %}";
+    </script>
+{% endif %}
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{% static "img/bg-01.jpg" %}');">
             <div class="wrap-login100">
@@ -83,7 +93,6 @@
 					</div>
 
 					<div class="contact100-form-checkbox">
-						{{ form.remember }}
 						<label class="label-checkbox100" for="id_remember">
 							Remember me
 						</label>
@@ -150,7 +159,8 @@
             document.getElementById('alert').hidden = true
         }
     </script>
-
+    {% include 'appOne/header.html' %}
+    {% include 'appOne/footer.html' %}
 
 </body>
 </html>
