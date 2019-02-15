@@ -20,6 +20,9 @@
     </div>
   </div>
       <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-right w3-padding-large"><i class="fa fa-user-circle w3-margin-right"></i>Profile</a>
+      {% if request.user.is_superuser %}
+          <a href="/admin" class="w3-bar-item w3-button w3-right w3-padding-large"><i class="fa fa-database w3-margin-right"></i>Admin</a>
+      {% endif %}
 
   {% elif register or login %}
       
